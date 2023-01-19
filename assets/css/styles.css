@@ -3,6 +3,7 @@ form {
     margin-left: 100px;
 
 }
+
 .jumbotron {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
@@ -21,21 +22,38 @@ button {
     border-radius: var(--border-radius);
     background-color: var(--bs-card-cap-bg);
     border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
-  }
+}
   
   .card-header {
     color: var(--primary);
     background-color: var(--dark);
     padding: 2.5%;
     border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
-  }
+}
   
   .card-body {
     padding: 2.5%;
     
-  }
+}
 
   button .btn {
     background-color: silver;
     border: var(--bs-btn-border-width) solid #000000;
-  }
+}
+
+.btn-outline-success {
+    --bs-btn-color: #3327db;
+    --bs-btn-border-color: #3327db;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #3327db;
+    --bs-btn-hover-border-color: #3327db;
+    --bs-btn-focus-shadow-rgb: 25,135,84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #3327db;
+    --bs-btn-active-border-color: #3327db;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #3327db;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #3327db;
+    --bs-gradient: none;
+}
