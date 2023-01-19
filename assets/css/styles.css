@@ -1,7 +1,41 @@
-header {
-    text-align: center;
-    background-color: blueviolet;
-    background-image: linear-gradient(180deg, blue, rgb(49, 49, 49));
-    
+form {
+    display: flex;
+    margin-left: 100px;
 
 }
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+}
+
+button {
+    margin-left: 30px;
+
+}
+
+.card {
+    margin: 0 0 20px 0;
+    border: 3px solid var(--dark);
+    border-radius: var(--border-radius);
+    background-color: var(--bs-card-cap-bg);
+    border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
+  }
+  
+  .card-header {
+    color: var(--primary);
+    background-color: var(--dark);
+    padding: 2.5%;
+    border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  }
+  
+  .card-body {
+    padding: 2.5%;
+    
+  }
+
+  button .btn {
+    background-color: silver;
+    border: var(--bs-btn-border-width) solid #000000;
+  }
