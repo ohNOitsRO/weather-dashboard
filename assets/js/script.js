@@ -1,6 +1,10 @@
-var cityName = document.querySelector(".btn");
+var cityName; 
 
-console.log(cityName);
+$("#searchBtn").click(function(){
+  var cityName = $(this).siblings(".form-control").val();
+  localStorage.setItem(cityName,cityName);
+  console.log(cityName);
+})
 
 
 function getApi() {

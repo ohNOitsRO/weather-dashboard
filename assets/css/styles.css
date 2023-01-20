@@ -4,19 +4,18 @@ form {
 
 }
 
-.navbar {
-   background-image: linear-gradient(to bottom right, #003ce0, rgb(255, 255, 107));;
-
+.navbar-brand {
+    color: white;
 }
 
 body {
-    background-color: #e9ecef
+    background-image: linear-gradient(to bottom, #4031e5, #3146e4, #2a56e0, #2f63db, #3c6ed3, #4e76d1, #5d7dd0, #6b85ce, #7b8cd3, #8a94d9, #989cde, #a6a4e3);
 }
 
 .jumbotron {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
-    background-color: #e9ecef;
+    background:rgba(255, 255, 255, 0);
     border-radius: 0.3rem;
 }
 
@@ -39,7 +38,7 @@ hr {
 }
   
   .card-header {
-    color: var(--primary);
+    color: white;
     background-color: var(--dark);
     padding: 2.5%;
     border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
@@ -56,18 +55,18 @@ hr {
 }
 
 .btn-outline-success {
-    --bs-btn-color: #003ce0;
-    --bs-btn-border-color: #003ce0;
+    --bs-btn-color: #03C988;
+    --bs-btn-border-color: #03C988;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #003ce0;
-    --bs-btn-hover-border-color: #003ce0;
+    --bs-btn-hover-bg: #03C988;
+    --bs-btn-hover-border-color: #03C988;
     --bs-btn-focus-shadow-rgb: 25,135,84;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #003ce0;
-    --bs-btn-active-border-color: #003ce0;
+    --bs-btn-active-bg: #03C988;
+    --bs-btn-active-border-color: #03C988;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #003ce0;
+    --bs-btn-disabled-color: #03C988;
     --bs-btn-disabled-bg: transparent;
-    --bs-btn-disabled-border-color: #003ce0;
+    --bs-btn-disabled-border-color: #03C988;
     --bs-gradient: none;
 }
