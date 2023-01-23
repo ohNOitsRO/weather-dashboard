@@ -22,10 +22,65 @@ function getApi() {
         return response.json();
       })
       .then (function(data) {
-         todayWeather.textContent = data[0].name + " (" + moment().format("M/D/YYYY") + ") ";  
-         console.log(data);
+        for (i = 1; i < 6; i++){
+          var dayOfWeek = dayjs().add(i, 'day').format('MM/DD/YYYY');
+          var weekdays = document.querySelector(".card-day"+(i-1));
+          var icon = document.querySelector(".card-img"+(i-1));
+          var weekdaysTemp = document.querySelector(".card-temp"+(i-1));
+          var weekdaysWind = document.querySelector(".card-wind"+(i-1));
+          var weekdaysHum = document.querySelector(".card-hum"+(i-1));
+          weekdays.textContent = dayOfWeek;
+          weekdaysTemp.textContent = "Temperature: " + (((data.list[(i-1)*8].main.temp)*9/5)+32) + " °F";
+          weekdaysWind.textContent = "Wind Speed: " + data.list[(i-1)*8].wind.speed + " MPH";
+          weekdaysHum.textContent = "Humidity: " + data.list[(i-1)*8].main.humidity + "%";
+
+          if (data.list[(i-1)*8].weather[0].main === "Clear"){
+            
+            icon.src = "https://openweathermap.org/img/wn/01d@2x.png"
+            
+
+          }
+          if (data.list[(i-1)*8].weather[0].main === "Clouds"){
+            
+            icon.src = "https://openweathermap.org/img/wn/02d@2x.png"
+            
+
+          }
+          if (data.list[(i-1)*8].weather[0].main === "Rain"){
+            
+            icon.src = "https://openweathermap.org/img/wn/10d@2x.png"
+            
+
+          }
+          if (data.list[(i-1)*8].weather[0].main === "Thunderstorm"){
+            
+            icon.src = "https://openweathermap.org/img/wn/11d@2x.png"
+            
+
+          }
+          if (data.list[(i-1)*8].weather[0].main === "Snow"){
+            
+            icon.src = "https://openweathermap.org/img/wn/13d@2x.png"
+            
+
+          }
+          if (data.list[(i-1)*8].weather[0].main === "Mist"){
+            
+            icon.src = "https://openweathermap.org/img/wn/50d@2x.png"
+            
+
+          }
 
 
+
+
+
+
+
+
+          console.log(data);
+
+      }
       }
       )
 
