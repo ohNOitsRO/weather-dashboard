@@ -68,6 +68,11 @@ hr {
     
 }
 
+.card-img0, .card-img1, .card-img2, .card-img3, .card-img4{
+    width: auto;
+    height: 100px;
+}
+
   button .btn {
     background-color: silver;
     border: var(--bs-btn-border-width) solid #000000;
