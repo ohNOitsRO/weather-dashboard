@@ -21,7 +21,7 @@ $("#searchBtn").click(function(event){
         .then (function(data) {
 
           var searchHistory = [];
-          var cityId = data.city.id;
+          var cityId = JSON.stringify(data.city.id);
                 console.log(cityId);
           var citySearch = {
               idOfCity: cityId,
