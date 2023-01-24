@@ -1,8 +1,6 @@
-var todayWeather = document.querySelector("#current-weather");
+var today = dayjs();
 var cityName;
 
-// https://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&appid=e199a596c22e40837091b277980ac2a5
-// FOR DAILY WEATHER CALLS
 
 $("#searchBtn").click(function(event){
   event.preventDefault();
@@ -14,10 +12,12 @@ $("#searchBtn").click(function(event){
 
 
 function getApi() {
-    var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=03e2b0141cd0f7d9d15a27103279bb3e&units=metric";
+    var requestFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=03e2b0141cd0f7d9d15a27103279bb3e&units=metric";
+    var requestToday = "https://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&appid=03e2b0141cd0f7d9d15a27103279bb3e&units=metric";
+
     
-    fetch(requestUrl)
-      .then(function (response) {
+  fetch(requestFiveDay)
+      .then (function (response) {
         console.log(response);
         return response.json();
       })
@@ -34,56 +34,80 @@ function getApi() {
           weekdaysWind.textContent = "Wind Speed: " + data.list[(i-1)*8].wind.speed + " MPH";
           weekdaysHum.textContent = "Humidity: " + data.list[(i-1)*8].main.humidity + "%";
 
-          if (data.list[(i-1)*8].weather[0].main === "Clear"){
-            
+          if (data.list[(i-1)*8].weather[0].main === "Clear"){            
             icon.src = "https://openweathermap.org/img/wn/01d@2x.png"
             
-
           }
-          if (data.list[(i-1)*8].weather[0].main === "Clouds"){
-            
+          if (data.list[(i-1)*8].weather[0].main === "Clouds"){            
             icon.src = "https://openweathermap.org/img/wn/02d@2x.png"
             
-
           }
-          if (data.list[(i-1)*8].weather[0].main === "Rain"){
-            
+          if (data.list[(i-1)*8].weather[0].main === "Rain"){            
             icon.src = "https://openweathermap.org/img/wn/10d@2x.png"
             
-
           }
-          if (data.list[(i-1)*8].weather[0].main === "Thunderstorm"){
-            
+          if (data.list[(i-1)*8].weather[0].main === "Thunderstorm"){            
             icon.src = "https://openweathermap.org/img/wn/11d@2x.png"
             
-
           }
-          if (data.list[(i-1)*8].weather[0].main === "Snow"){
-            
+          if (data.list[(i-1)*8].weather[0].main === "Snow"){            
             icon.src = "https://openweathermap.org/img/wn/13d@2x.png"
             
-
           }
-          if (data.list[(i-1)*8].weather[0].main === "Mist"){
-            
+          if (data.list[(i-1)*8].weather[0].main === "Mist"){            
             icon.src = "https://openweathermap.org/img/wn/50d@2x.png"
             
+          }
+      }
+    });
+          
 
+  fetch(requestToday)
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (todayData) {
+        console.log(todayData);
+          var todayWeather = document.querySelector("#current-weather");
+          var icon = document.querySelector(".today-img");
+          var todayTemp = document.querySelector(".today-temp");
+          var todayWind = document.querySelector(".today-wind");
+          var todayHum = document.querySelector(".today-hum");
+
+          todayWeather.textContent = today.format('MMM D, YYYY');
+          todayTemp.textContent = "Temperature: " + (((todayData.main.temp)*9/5)+32) + " °F";
+          todayWind.textContent = "Wind Speed: " + todayData.wind.speed + " MPH";
+          todayHum.textContent = "Humidity: " + todayData.main.humidity + " %";
+
+          if (todayData.weather[0].main === "Clear"){            
+            icon.src = "https://openweathermap.org/img/wn/01d@2x.png"
+            
+          }
+          if (todayData.weather[0].main === "Clouds"){            
+            icon.src = "https://openweathermap.org/img/wn/02d@2x.png"
+            
+          }
+          if (todayData.weather[0].main === "Rain"){            
+            icon.src = "https://openweathermap.org/img/wn/10d@2x.png"
+            
+          }
+          if (todayData.weather[0].main === "Thunderstorm"){            
+            icon.src = "https://openweathermap.org/img/wn/11d@2x.png"
+            
+          }
+          if (todayData.weather[0].main === "Snow"){            
+            icon.src = "https://openweathermap.org/img/wn/13d@2x.png"
+            
+          }
+          if (todayData.weather[0].main === "Mist"){            
+            icon.src = "https://openweathermap.org/img/wn/50d@2x.png"
+            
           }
 
+      });
 
 
+  } 
 
-
-
-
-
-          console.log(data);
-
-      }
-      }
-      )
-
-      }
-
-    })
+})

@@ -29,6 +29,24 @@ hr {
     margin-bottom: 30px;
 }
 
+.today-img {
+    width: 250px;
+    height: auto;
+}
+
+#current-weather, .today-temp, .today-wind, .today-hum {
+    width: auto;
+    color: white;
+    font-weight: bold;
+
+}
+
+.column {
+    width:auto;
+    align-self: center;
+
+}
+
 .card {
     margin: 0 0 20px 0;
     border: 3px solid var(--dark);
