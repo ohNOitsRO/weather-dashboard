@@ -30,7 +30,7 @@ function getApi() {
           var weekdaysWind = document.querySelector(".card-wind"+(i-1));
           var weekdaysHum = document.querySelector(".card-hum"+(i-1));
           weekdays.textContent = dayOfWeek;
-          weekdaysTemp.textContent = "Temperature: " + (((data.list[(i-1)*8].main.temp)*9/5)+32) + " °F";
+          weekdaysTemp.textContent = "Temperature: " + (((data.list[(i-1)*8].main.temp)*9/5)+32).toFixed(2) + " °F";
           weekdaysWind.textContent = "Wind Speed: " + data.list[(i-1)*8].wind.speed + " MPH";
           weekdaysHum.textContent = "Humidity: " + data.list[(i-1)*8].main.humidity + "%";
 
@@ -76,7 +76,7 @@ function getApi() {
           var todayHum = document.querySelector(".today-hum");
 
           todayWeather.textContent = today.format('MMM D, YYYY');
-          todayTemp.textContent = "Temperature: " + (((todayData.main.temp)*9/5)+32) + " °F";
+          todayTemp.textContent = "Temperature: " + (((todayData.main.temp)*9/5)+32).toFixed(2) + " °F";
           todayWind.textContent = "Wind Speed: " + todayData.wind.speed + " MPH";
           todayHum.textContent = "Humidity: " + todayData.main.humidity + " %";
 
@@ -113,7 +113,7 @@ function getApi() {
 })
 
 function renderLocalStorage(){
-    
+
 
 
 }
