@@ -111,3 +111,9 @@ function getApi() {
   } 
 
 })
+
+function renderLocalStorage(){
+    
+
+
+}
