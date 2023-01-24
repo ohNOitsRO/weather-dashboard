@@ -32,7 +32,8 @@ $("#searchBtn").click(function(event){
           searchHistory.push(citySearch);
           localStorage.setItem("search",searchHistory);
           console.log(searchHistory);
-          searchHistory = JSON.parse(localStorage.getItem("search"));
+          // searchHistory = JSON.parse(localStorage.getItem("search"));
+          searchHistory = localStorage.getItem("search");
           console.log(searchHistory);
         
           
