@@ -1,43 +1,16 @@
+/* Helper Elements */
 form {
     display: flex;
     margin-left: 100px;
 
 }
 
-.navbar-brand {
-    color: white;
-}
-
 body {
     background-image: linear-gradient(to bottom, #4031e5, #3146e4, #2a56e0, #2f63db, #3c6ed3, #4e76d1, #5d7dd0, #6b85ce, #7b8cd3, #8a94d9, #989cde, #a6a4e3);
 }
 
-.jumbotron {
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
-    background:rgba(255, 255, 255, 0);
-    border-radius: 0.3rem;
-}
-
 button {
     margin-left: 30px;
-
-}
-
-hr {
-    margin: auto;
-    margin-bottom: 30px;
-}
-
-.today-img {
-    width: 250px;
-    height: auto;
-}
-
-#current-weather, .today-temp, .today-wind, .today-hum {
-    width: auto;
-    color: white;
-    font-weight: bold;
 
 }
 
@@ -47,6 +20,62 @@ hr {
 
 }
 
+hr {
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+li {
+    list-style-type: none;
+    
+}
+
+footer {
+    color: white;
+    background:rgba(255, 255, 255, 0);
+
+}
+
+/* Navigation Bar Stylings */
+.navbar-brand {
+    color: white;
+}
+
+/* Main Hero Section Stylings */
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background:rgba(255, 255, 255, 0);
+    border-radius: 0.3rem;
+}
+
+/* Current Day Weather Stylings */
+.today-img {
+    width: 250px;
+    height: auto;
+}
+
+#current-weather {
+    background:rgba(255, 255, 255, 0);
+
+}
+
+#current-weather, .today-temp, .today-wind, .today-hum {
+    width: auto;
+    color: white;
+    font-weight: bold;
+
+}
+
+#current-city {
+    color: white;
+    font-weight: bolder;
+    font-size: 30px;
+    background:rgba(255, 255, 255, 0);
+
+}
+
+/* 5 Day Forecast Card Container Stylings */
 .card {
     margin: 0 0 20px 0;
     border: 3px solid var(--dark);
@@ -55,14 +84,14 @@ hr {
     border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
   
-  .card-header {
+.card-header {
     color: white;
     background-color: var(--dark);
     padding: 2.5%;
     border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
   
-  .card-body {
+.card-body {
     padding: 2.5%;
     color: white;
     
@@ -73,7 +102,8 @@ hr {
     height: 100px;
 }
 
-  button .btn {
+/* Button Stylings */
+button .btn {
     background-color: silver;
     border: var(--bs-btn-border-width) solid #000000;
 }

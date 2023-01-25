@@ -3,8 +3,9 @@ var cityName;
 var cityId;
 var searchHistory = [];
 var searchList = document.querySelector("#search-list");
+var currentCity = document.querySelector("#current-city");
 
-
+// Upon button click, retrieves OpenWeather API for current and 5 day forecasts, as well as push user city entries into localStorage.
 $("#searchBtn").click(function(event){
   event.preventDefault();
   var cityName = $(this).siblings(".form-control").val();
@@ -30,12 +31,11 @@ $("#searchBtn").click(function(event){
 
           searchHistory.push(citySearch);
           localStorage.setItem("search",JSON.stringify(searchHistory));
-          
 
-
+          currentCity.textContent = citySearch.nameOfCity;
           renderSearchHistory();
 
-
+          
 
 
           for (i = 1; i < 6; i++){
@@ -124,13 +124,13 @@ $("#searchBtn").click(function(event){
   }
 )
 
+// Creates previous search entries into an accessable list at the footer of the page.
 function renderSearchHistory(){
-  for (let i = 0; i < searchHistory.length; i++){
-    var previousCity = searchHistory[i].nameOfCity;     
-
-    var list = document.createElement("li");
-    list.textContent = previousCity;
+  
+    var previousCity = searchHistory[searchHistory.length - 1].nameOfCity;     
+    var list = document.createElement("span");
+    list.textContent = previousCity + "  ";
 
     searchList.appendChild(list);
-  }
+  
 }

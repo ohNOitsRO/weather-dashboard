@@ -23,9 +23,10 @@
 <main>
     <div class="jumbotron vh-100">
         <h3 class="card-header text-uppercase text-center py-1">5 Day Weather Forecast</h3>
-        <p id="current-weather" class="row card align-items-center justify-content-center justify-content-around"></p> 
+        <p id="current-weather" class="row card align-items-center justify-content-center justify-content-around border-0 mb-1"></p>
+        <p id="current-city" class="row card align-items-center justify-content-center justify-content-around"></p>
         <div class="row justify-content-center">
-            <img class="today-img" src="./assets/images/placeholder.png" alt="Card image cap">
+            <img class="today-img" src="./assets/images/placeholder.png">
             <div class="column">
             <p class="today-temp"></p>
             <p class="today-wind"></p>
@@ -103,10 +104,11 @@
 </main>
 <footer>
   <nav class="navbar navbar-light justify-content-around">
-    <ul class="navbar-brand" id="search-list">Previous Cities Searched:
-      
+    <span class="navbar-brand mb-0 h1 justify-content-center">Previous Searches
+    <li id="search-list">
 
-    </ul>
+    </li>
+    </span>
   </nav>
 
 </footer>
