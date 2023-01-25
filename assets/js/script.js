@@ -1,7 +1,8 @@
 var today = dayjs();
 var cityName;
 var cityId;
-// var searchHistory = [];
+var searchHistory = [];
+var searchList = document.querySelector("#search-list");
 
 
 $("#searchBtn").click(function(event){
@@ -20,27 +21,20 @@ $("#searchBtn").click(function(event){
           })
         .then (function(data) {
 
-          var searchHistory = [];
+        
           var cityId = JSON.stringify(data.city.id);
-                console.log(cityId);
           var citySearch = {
               idOfCity: cityId,
               nameOfCity: cityName
               }
-                console.log(citySearch);
 
           searchHistory.push(citySearch);
-          localStorage.setItem("search",searchHistory);
-          console.log(searchHistory);
-          // searchHistory = JSON.parse(localStorage.getItem("search"));
-          searchHistory = localStorage.getItem("search");
-          console.log(searchHistory);
-        
+          localStorage.setItem("search",JSON.stringify(searchHistory));
           
-        
 
 
-          // renderLocalStorage();
+          renderSearchHistory();
+
 
 
 
@@ -130,17 +124,13 @@ $("#searchBtn").click(function(event){
   }
 )
 
-function renderLocalStorage(){
+function renderSearchHistory(){
+  for (let i = 0; i < searchHistory.length; i++){
+    var previousCity = searchHistory[i].nameOfCity;     
 
-  if (localStorage.getItem("search")){
-    var searchHistory = JSON.parse(localStorage.getItem("search"));
+    var list = document.createElement("li");
+    list.textContent = previousCity;
 
+    searchList.appendChild(list);
   }
-  else {
-    var searchHistory = [];
-
-  }
-
-  console.log(searchHistory);
-
 }
