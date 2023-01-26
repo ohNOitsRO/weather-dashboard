@@ -36,6 +36,16 @@ footer {
 
 }
 
+#search-align {
+    text-align: center;
+
+}
+
+#search-list a {
+    text-decoration: none;
+
+}
+
 /* Navigation Bar Stylings */
 .navbar-brand {
     color: white;

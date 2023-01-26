@@ -14,7 +14,6 @@ $("#searchBtn").click(function(event){
     function getApi() {
       var requestFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=03e2b0141cd0f7d9d15a27103279bb3e&units=metric";
       var requestToday = "https://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&appid=03e2b0141cd0f7d9d15a27103279bb3e&units=metric";
-
     
     fetch(requestFiveDay)
         .then (function (response) {
@@ -32,11 +31,9 @@ $("#searchBtn").click(function(event){
           searchHistory.push(citySearch);
           localStorage.setItem("search",JSON.stringify(searchHistory));
 
-          currentCity.textContent = citySearch.nameOfCity;
           renderSearchHistory();
 
-          
-
+          currentCity.textContent = citySearch.nameOfCity;
 
           for (i = 1; i < 6; i++){
             var dayOfWeek = dayjs().add(i, 'day').format('MM/DD/YYYY');
@@ -124,13 +121,21 @@ $("#searchBtn").click(function(event){
   }
 )
 
-// Creates previous search entries into an accessable list at the footer of the page.
+// Creates previous search entries into an accessible list at the footer of the page.
 function renderSearchHistory(){
   
     var previousCity = searchHistory[searchHistory.length - 1].nameOfCity;     
     var list = document.createElement("span");
-    list.textContent = previousCity + "  ";
+    var link = document.createElement("a");
 
-    searchList.appendChild(list);
-  
+    list.append(link);
+    link.href = "#old-search";
+    link.textContent = previousCity + "  ";
+
+    searchList.append(list, link);
+     
 }
+
+document.querySelector("#old-search").addEventListener("click", function () {
+  
+});
