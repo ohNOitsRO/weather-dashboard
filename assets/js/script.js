@@ -1,6 +1,7 @@
 var today = dayjs();
 var cityName;
 var cityId;
+var clicked = false;
 var searchHistory = [];
 var searchList = document.querySelector("#search-list");
 var currentCity = document.querySelector("#current-city");
@@ -9,7 +10,18 @@ var currentCity = document.querySelector("#current-city");
 $("#searchBtn").click(function(event){
   event.preventDefault();
   var cityName = $(this).siblings(".form-control").val();
+  document.querySelector("#old-search").value = "";
   getApi();
+ 
+      $("#search-list").click(function(event){
+        previousCity = event.target.textContent;
+        console.log(previousCity);
+        clicked = true;
+        cityName = previousCity;
+        getApi();
+      });
+
+
   
     function getApi() {
       var requestFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=03e2b0141cd0f7d9d15a27103279bb3e&units=metric";
@@ -31,7 +43,10 @@ $("#searchBtn").click(function(event){
           searchHistory.push(citySearch);
           localStorage.setItem("search",JSON.stringify(searchHistory));
 
-          renderSearchHistory();
+
+          if (!clicked == true){
+              renderSearchHistory();
+          }
 
           currentCity.textContent = citySearch.nameOfCity;
 
@@ -135,7 +150,3 @@ function renderSearchHistory(){
     searchList.append(list, link);
      
 }
-
-document.querySelector("#old-search").addEventListener("click", function () {
-  
-});
